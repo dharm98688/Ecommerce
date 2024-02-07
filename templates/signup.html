@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Sign Up Page
+{% endblock title %}
+
+{% block content %}
+
+<div class="title">Registration</div>
+<div class="content">
+  {% for message in messages  %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong></strong>{{message}}
+  <button type="button" class="btn-close" data-bs-dismiss="alert" arial-label="close"></button>
+</div>
+
+{% endfor %}
+  <form action="{% url 'authcart:signup' %}" method="post">
+    {% csrf_token %}
+
+    <div class="user-details">
+{#      <div class="input-box">#}
+{#        <span class="details">Full Name</span>#}
+{#        <input type="text" placeholder="Enter your name" name="fullname" required>#}
+{#      </div>#}
+{#      <div class="input-box">#}
+{#        <span class="details">Username</span>#}
+{#        <input type="text" placeholder="Enter your username" name="username" required>#}
+{#      </div>#}
+      <div class="input-box">
+        <span class="details">Email</span>
+        <input type="email" placeholder="Enter your email" name="email" required>
+      </div>
+{#      <div class="input-box">#}
+{#        <span class="details">Phone Number</span>#}
+{#            <input type="text" id="number" name="number" placeholder="Enter Your Number" onkeypress="return isNumberKey(event)" required>#}
+{#      </div>#}
+      <div class="input-box">
+        <span class="details">Password</span>
+        <input type="password" placeholder="Enter your password" name="password" required>
+      </div>
+      <div class="input-box">
+        <span class="details">Confirm Password</span>
+        <input type="password" placeholder="Confirm your password" name="cpassword" required>
+      </div>
+    </div>
+{#    <div class="gender-details">#}
+{#      <input type="radio" name="gender" id="dot-1">#}
+{#      <input type="radio" name="gender" id="dot-2">#}
+{#      <input type="radio" name="gender" id="dot-3">#}
+      {% comment %} <span class="gender-title">Gender</span>
+      <div class="category">
+        <label for="dot-1">
+        <span class="dot one"></span>
+        <span class="gender">Male</span>
+      </label>
+      <label for="dot-2">
+        <span class="dot two"></span>
+        <span class="gender">Female</span>
+      </label>
+      <label for="dot-3">
+        <span class="dot three"></span>
+        <span class="gender">Prefer not to say</span>
+        </label>
+      </div> {% endcomment %}
+{#    </div>#}
+    <div class="button">
+      <input type="submit" value="Register">
+    </div>
+  </form>
+
+</div>
+
+{% endblock content %}
+    
